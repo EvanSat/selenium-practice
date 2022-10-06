@@ -13,6 +13,9 @@ browser.get(url)
 print(browser.title)
 
 search = browser.find_element(By.NAME, 'q')  # Finds Search Box
-search.send_keys("test imput")
+search.send_keys("test input")
 search.send_keys(Keys.RETURN)
-# browser.close()     # closes tab |.quit() will close whole browser
+
+time.sleep(5)
+
+browser.close()     # closes tab |.quit() will close whole browser
