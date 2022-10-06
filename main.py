@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+
+PATH = "C:\\Users\\evans\\Documents\\GitHub\\selenium-practice\\chromedriver.exe"
 s = Service(PATH)
 browser = webdriver.Chrome(service=s)
 
