@@ -7,16 +7,16 @@ import time
 
 PATH = "C:\\Users\\evans\\Documents\\GitHub\\selenium-practice\\chromedriver.exe"
 s = Service(PATH)
-browser = webdriver.Chrome(service=s)
+driver = webdriver.Chrome(service=s)
 
 url = "https://www.google.com"
-browser.get(url)
-print(browser.title)
+driver.get(url)
+print(driver.title)
 
-search = browser.find_element(By.NAME, 'q')  # Finds Search Box
+search = driver.find_element(By.NAME, 'q')  # Finds Search Box
 search.send_keys("test input")
 search.send_keys(Keys.RETURN)
 
 time.sleep(5)
 
-browser.close()     # closes tab |.quit() will close whole browser
+driver.close()     # closes tab |.quit() will close whole browser
