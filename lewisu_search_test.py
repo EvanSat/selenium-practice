@@ -20,24 +20,29 @@ class SeleniumSearch(unittest.TestCase):
     def test_academics_exists(self):
         self.driver.get('https://lewisu.edu/index.htm')
         assert "Academics" in self.driver.page_source
+        self.driver.quit()
 
     def test_admission_aid_exists(self):
         self.driver.get('https://lewisu.edu/index.htm')
         time.sleep(1)
         print(time.localtime())
         assert "Admission & Aid" in self.driver.page_source
+        self.driver.quit()
 
     def test_Athletics_exists(self):
         self.driver.get('https://lewisu.edu/index.htm')
         assert "Athletics" in self.driver.page_source
+        self.driver.quit()
 
     def test_student_life_exists(self):
         self.driver.get('https://lewisu.edu/index.htm')
         assert "Student Life" in self.driver.page_source
+        self.driver.quit()
 
     def test_locations_exists(self):
         self.driver.get('https://lewisu.edu/index.htm')
         assert "Locations" in self.driver.page_source
+        self.driver.quit()
 
     def test_faculty_staff_search(self):
         self.driver.get('https://lewisu.edu/index.htm')
@@ -50,17 +55,16 @@ class SeleniumSearch(unittest.TestCase):
         last_name_search.send_keys('Omari')
         self.driver.find_element(By.NAME, 'submit').click()
         assert "Omari, Dr. Safwan" in self.driver.page_source
+        self.driver.quit()
 
     def test_search_in_python_org(self):
-        driver = self.driver
-        driver.get("http://www.python.org")
-        self.assertIn("Python", driver.title)
-        elem = driver.find_element(By.NAME, 'q')
+        self.driver.get("http://www.python.org")
+        self.assertIn("Python", self.driver.title)
+        elem = self.driver.find_element(By.NAME, 'q')
         elem.send_keys("pycon")
         elem.send_keys(Keys.RETURN)
-        assert "No results found." not in driver.page_source
-
+        assert "No results found." not in self.driver.page_source
+        self.driver.quit()
 
     def tear_down(self):
         self.driver.close()
-
